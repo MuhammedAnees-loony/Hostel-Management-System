@@ -1,0 +1,449 @@
+2024-09-21 19:26:56,369:ERROR:Error connecting to MySQL: 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+2024-09-21 19:30:10,074:INFO:Connected to MySQL database
+2024-09-21 19:30:10,107:INFO:Truncated table attendance.
+2024-09-21 19:30:10,129:INFO:Truncated table hostel_fee.
+2024-09-21 19:30:10,159:INFO:Truncated table room_allotment.
+2024-09-21 19:30:10,193:INFO:Truncated table student.
+2024-09-21 19:30:10,216:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 19:30:10,249:INFO:Truncated table room.
+2024-09-21 19:30:10,273:INFO:Truncated table warden.
+2024-09-21 19:30:10,304:INFO:Truncated table hostel.
+2024-09-21 19:30:10,333:INFO:Truncated table hostel_manager.
+2024-09-21 19:30:10,361:INFO:Truncated table faculty.
+2024-09-21 19:30:10,366:INFO:Inserted 10 records into faculty table.
+2024-09-21 19:30:10,369:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 19:30:10,372:INFO:Inserted 5 records into hostel table.
+2024-09-21 19:30:10,378:INFO:Inserted 10 records into warden table.
+2024-09-21 19:30:10,382:INFO:Inserted 100 records into room table.
+2024-09-21 19:30:10,383:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 19:30:10,385:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 19:30:10,407:INFO:Inserted 50 records into student table.
+2024-09-21 19:30:10,408:INFO:Starting to insert room_allotment records...
+2024-09-21 19:30:10,412:ERROR:Error inserting room_allotment record 1: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,413:ERROR:Error inserting room_allotment record 2: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,415:ERROR:Error inserting room_allotment record 3: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,416:ERROR:Error inserting room_allotment record 4: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,417:ERROR:Error inserting room_allotment record 5: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,417:ERROR:Error inserting room_allotment record 6: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,418:ERROR:Error inserting room_allotment record 7: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,419:ERROR:Error inserting room_allotment record 8: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,420:ERROR:Error inserting room_allotment record 9: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,421:ERROR:Error inserting room_allotment record 10: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,422:ERROR:Error inserting room_allotment record 11: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,423:ERROR:Error inserting room_allotment record 12: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,423:ERROR:Error inserting room_allotment record 13: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,424:ERROR:Error inserting room_allotment record 14: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,424:ERROR:Error inserting room_allotment record 15: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,425:ERROR:Error inserting room_allotment record 16: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,425:ERROR:Error inserting room_allotment record 17: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,426:ERROR:Error inserting room_allotment record 18: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,426:ERROR:Error inserting room_allotment record 19: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,427:ERROR:Error inserting room_allotment record 20: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,428:ERROR:Error inserting room_allotment record 21: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,429:ERROR:Error inserting room_allotment record 22: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,429:ERROR:Error inserting room_allotment record 23: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,430:ERROR:Error inserting room_allotment record 24: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,431:ERROR:Error inserting room_allotment record 25: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,431:ERROR:Error inserting room_allotment record 26: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,432:ERROR:Error inserting room_allotment record 27: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,433:ERROR:Error inserting room_allotment record 28: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,433:ERROR:Error inserting room_allotment record 29: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,434:ERROR:Error inserting room_allotment record 30: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,436:ERROR:Error inserting room_allotment record 31: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,436:ERROR:Error inserting room_allotment record 32: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,437:ERROR:Error inserting room_allotment record 33: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,438:ERROR:Error inserting room_allotment record 34: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,438:ERROR:Error inserting room_allotment record 35: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,439:ERROR:Error inserting room_allotment record 36: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,439:ERROR:Error inserting room_allotment record 37: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,440:ERROR:Error inserting room_allotment record 38: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,441:ERROR:Error inserting room_allotment record 39: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,441:ERROR:Error inserting room_allotment record 40: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,442:ERROR:Error inserting room_allotment record 41: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,443:ERROR:Error inserting room_allotment record 42: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,444:ERROR:Error inserting room_allotment record 43: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,445:ERROR:Error inserting room_allotment record 44: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,445:ERROR:Error inserting room_allotment record 45: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,446:ERROR:Error inserting room_allotment record 46: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,446:ERROR:Error inserting room_allotment record 47: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,447:ERROR:Error inserting room_allotment record 48: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,447:ERROR:Error inserting room_allotment record 49: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,448:ERROR:Error inserting room_allotment record 50: 1048 (23000): Column 'Amount' cannot be null
+2024-09-21 19:30:10,448:INFO:Completed inserting room_allotment records.
+2024-09-21 19:30:10,454:INFO:Inserted 100 records into attendance table.
+2024-09-21 19:30:10,457:ERROR:Error inserting into hostel_fee table: 1062 (23000): Duplicate entry '10-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:30:10,457:ERROR:Error: 1062 (23000): Duplicate entry '10-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:30:10,461:INFO:MySQL connection is closed.
+2024-09-21 19:31:52,390:INFO:Connected to MySQL database
+2024-09-21 19:31:52,420:INFO:Truncated table attendance.
+2024-09-21 19:31:52,450:INFO:Truncated table hostel_fee.
+2024-09-21 19:31:52,481:INFO:Truncated table room_allotment.
+2024-09-21 19:31:52,507:INFO:Truncated table student.
+2024-09-21 19:31:52,537:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 19:31:52,566:INFO:Truncated table room.
+2024-09-21 19:31:52,590:INFO:Truncated table warden.
+2024-09-21 19:31:52,626:INFO:Truncated table hostel.
+2024-09-21 19:31:52,655:INFO:Truncated table hostel_manager.
+2024-09-21 19:31:52,678:INFO:Truncated table faculty.
+2024-09-21 19:31:52,682:INFO:Inserted 10 records into faculty table.
+2024-09-21 19:31:52,685:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 19:31:52,689:INFO:Inserted 5 records into hostel table.
+2024-09-21 19:31:52,697:INFO:Inserted 10 records into warden table.
+2024-09-21 19:31:52,701:INFO:Inserted 100 records into room table.
+2024-09-21 19:31:52,702:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 19:31:52,704:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 19:31:52,726:INFO:Inserted 50 records into student table.
+2024-09-21 19:31:52,726:INFO:Starting to insert room_allotment records...
+2024-09-21 19:31:52,731:ERROR:Error inserting room_allotment record 1: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,731:ERROR:Error inserting room_allotment record 2: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,732:ERROR:Error inserting room_allotment record 3: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,734:ERROR:Error inserting room_allotment record 4: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,735:ERROR:Error inserting room_allotment record 5: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,736:ERROR:Error inserting room_allotment record 6: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,737:ERROR:Error inserting room_allotment record 7: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,737:ERROR:Error inserting room_allotment record 8: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,738:ERROR:Error inserting room_allotment record 9: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,738:ERROR:Error inserting room_allotment record 10: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,738:ERROR:Error inserting room_allotment record 11: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,740:ERROR:Error inserting room_allotment record 12: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,740:ERROR:Error inserting room_allotment record 13: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,741:ERROR:Error inserting room_allotment record 14: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,741:ERROR:Error inserting room_allotment record 15: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,742:ERROR:Error inserting room_allotment record 16: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,743:ERROR:Error inserting room_allotment record 17: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,744:ERROR:Error inserting room_allotment record 18: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,744:ERROR:Error inserting room_allotment record 19: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,745:ERROR:Error inserting room_allotment record 20: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,745:ERROR:Error inserting room_allotment record 21: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,746:ERROR:Error inserting room_allotment record 22: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,746:ERROR:Error inserting room_allotment record 23: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,747:ERROR:Error inserting room_allotment record 24: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,748:ERROR:Error inserting room_allotment record 25: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,749:ERROR:Error inserting room_allotment record 26: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,750:ERROR:Error inserting room_allotment record 27: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,750:ERROR:Error inserting room_allotment record 28: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,751:ERROR:Error inserting room_allotment record 29: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,752:ERROR:Error inserting room_allotment record 30: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,753:ERROR:Error inserting room_allotment record 31: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,753:ERROR:Error inserting room_allotment record 32: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,754:ERROR:Error inserting room_allotment record 33: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,755:ERROR:Error inserting room_allotment record 34: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,756:ERROR:Error inserting room_allotment record 35: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,757:ERROR:Error inserting room_allotment record 36: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,758:ERROR:Error inserting room_allotment record 37: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,759:ERROR:Error inserting room_allotment record 38: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,759:ERROR:Error inserting room_allotment record 39: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,760:ERROR:Error inserting room_allotment record 40: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,761:ERROR:Error inserting room_allotment record 41: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,761:ERROR:Error inserting room_allotment record 42: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,762:ERROR:Error inserting room_allotment record 43: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,763:ERROR:Error inserting room_allotment record 44: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,764:ERROR:Error inserting room_allotment record 45: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,765:ERROR:Error inserting room_allotment record 46: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,766:ERROR:Error inserting room_allotment record 47: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,766:ERROR:Error inserting room_allotment record 48: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,767:ERROR:Error inserting room_allotment record 49: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,767:ERROR:Error inserting room_allotment record 50: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:31:52,767:INFO:Completed inserting room_allotment records.
+2024-09-21 19:31:52,773:INFO:Inserted 100 records into attendance table.
+2024-09-21 19:31:52,775:ERROR:Error inserting into hostel_fee table: 1062 (23000): Duplicate entry '11-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:31:52,775:ERROR:Error: 1062 (23000): Duplicate entry '11-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:31:52,779:INFO:MySQL connection is closed.
+2024-09-21 19:33:15,961:INFO:Connected to MySQL database
+2024-09-21 19:33:15,989:INFO:Truncated table attendance.
+2024-09-21 19:33:16,009:INFO:Truncated table hostel_fee.
+2024-09-21 19:33:16,039:INFO:Truncated table room_allotment.
+2024-09-21 19:33:16,070:INFO:Truncated table student.
+2024-09-21 19:33:16,096:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 19:33:16,127:INFO:Truncated table room.
+2024-09-21 19:33:16,156:INFO:Truncated table warden.
+2024-09-21 19:33:16,183:INFO:Truncated table hostel.
+2024-09-21 19:33:16,209:INFO:Truncated table hostel_manager.
+2024-09-21 19:33:16,237:INFO:Truncated table faculty.
+2024-09-21 19:33:16,241:INFO:Inserted 10 records into faculty table.
+2024-09-21 19:33:16,243:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 19:33:16,246:INFO:Inserted 5 records into hostel table.
+2024-09-21 19:33:16,251:INFO:Inserted 10 records into warden table.
+2024-09-21 19:33:16,254:INFO:Inserted 100 records into room table.
+2024-09-21 19:33:16,254:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 19:33:16,256:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 19:33:16,277:INFO:Inserted 50 records into student table.
+2024-09-21 19:33:16,277:INFO:Starting to insert room_allotment records...
+2024-09-21 19:33:16,281:ERROR:Error inserting room_allotment record 1: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,282:ERROR:Error inserting room_allotment record 2: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,283:ERROR:Error inserting room_allotment record 3: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,284:ERROR:Error inserting room_allotment record 4: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,284:ERROR:Error inserting room_allotment record 5: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,285:ERROR:Error inserting room_allotment record 6: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,286:ERROR:Error inserting room_allotment record 7: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,287:ERROR:Error inserting room_allotment record 8: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,287:ERROR:Error inserting room_allotment record 9: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,288:ERROR:Error inserting room_allotment record 10: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,289:ERROR:Error inserting room_allotment record 11: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,289:ERROR:Error inserting room_allotment record 12: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,290:ERROR:Error inserting room_allotment record 13: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,291:ERROR:Error inserting room_allotment record 14: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,292:ERROR:Error inserting room_allotment record 15: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,293:ERROR:Error inserting room_allotment record 16: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,294:ERROR:Error inserting room_allotment record 17: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,295:ERROR:Error inserting room_allotment record 18: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,296:ERROR:Error inserting room_allotment record 19: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,297:ERROR:Error inserting room_allotment record 20: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,298:ERROR:Error inserting room_allotment record 21: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,299:ERROR:Error inserting room_allotment record 22: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,300:ERROR:Error inserting room_allotment record 23: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,301:ERROR:Error inserting room_allotment record 24: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,301:ERROR:Error inserting room_allotment record 25: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,302:ERROR:Error inserting room_allotment record 26: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,302:ERROR:Error inserting room_allotment record 27: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,303:ERROR:Error inserting room_allotment record 28: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,304:ERROR:Error inserting room_allotment record 29: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,305:ERROR:Error inserting room_allotment record 30: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,305:ERROR:Error inserting room_allotment record 31: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,306:ERROR:Error inserting room_allotment record 32: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,307:ERROR:Error inserting room_allotment record 33: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,307:ERROR:Error inserting room_allotment record 34: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,308:ERROR:Error inserting room_allotment record 35: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,309:ERROR:Error inserting room_allotment record 36: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,310:ERROR:Error inserting room_allotment record 37: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,310:ERROR:Error inserting room_allotment record 38: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,311:ERROR:Error inserting room_allotment record 39: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,311:ERROR:Error inserting room_allotment record 40: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,312:ERROR:Error inserting room_allotment record 41: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,313:ERROR:Error inserting room_allotment record 42: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,314:ERROR:Error inserting room_allotment record 43: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,314:ERROR:Error inserting room_allotment record 44: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,315:ERROR:Error inserting room_allotment record 45: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,316:ERROR:Error inserting room_allotment record 46: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,316:ERROR:Error inserting room_allotment record 47: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,317:ERROR:Error inserting room_allotment record 48: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,317:ERROR:Error inserting room_allotment record 49: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,318:ERROR:Error inserting room_allotment record 50: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:33:16,318:INFO:Completed inserting room_allotment records.
+2024-09-21 19:33:16,323:INFO:Inserted 100 records into attendance table.
+2024-09-21 19:33:16,326:ERROR:Error inserting into hostel_fee table: 1062 (23000): Duplicate entry '40-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:33:16,326:ERROR:Error: 1062 (23000): Duplicate entry '40-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:33:16,329:INFO:MySQL connection is closed.
+2024-09-21 19:35:34,987:INFO:Connected to MySQL database
+2024-09-21 19:35:35,018:INFO:Truncated table attendance.
+2024-09-21 19:35:35,075:INFO:Truncated table hostel_fee.
+2024-09-21 19:35:35,101:INFO:Truncated table room_allotment.
+2024-09-21 19:35:35,141:INFO:Truncated table student.
+2024-09-21 19:35:35,167:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 19:35:35,197:INFO:Truncated table room.
+2024-09-21 19:35:35,226:INFO:Truncated table warden.
+2024-09-21 19:35:35,268:INFO:Truncated table hostel.
+2024-09-21 19:35:35,289:INFO:Truncated table hostel_manager.
+2024-09-21 19:35:35,317:INFO:Truncated table faculty.
+2024-09-21 19:35:35,322:INFO:Inserted 10 records into faculty table.
+2024-09-21 19:35:35,326:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 19:35:35,329:INFO:Inserted 5 records into hostel table.
+2024-09-21 19:35:35,336:INFO:Inserted 10 records into warden table.
+2024-09-21 19:35:35,345:INFO:Inserted 100 records into room table.
+2024-09-21 19:35:35,346:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 19:35:35,348:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 19:35:35,375:INFO:Inserted 50 records into student table.
+2024-09-21 19:35:35,376:INFO:Starting to insert room_allotment records...
+2024-09-21 19:35:35,380:ERROR:Error inserting room_allotment record 1: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,381:ERROR:Error inserting room_allotment record 2: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,382:ERROR:Error inserting room_allotment record 3: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,383:ERROR:Error inserting room_allotment record 4: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,385:ERROR:Error inserting room_allotment record 5: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,386:ERROR:Error inserting room_allotment record 6: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,387:ERROR:Error inserting room_allotment record 7: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,388:ERROR:Error inserting room_allotment record 8: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,388:ERROR:Error inserting room_allotment record 9: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,390:ERROR:Error inserting room_allotment record 10: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,390:ERROR:Error inserting room_allotment record 11: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,391:ERROR:Error inserting room_allotment record 12: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,392:ERROR:Error inserting room_allotment record 13: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,394:ERROR:Error inserting room_allotment record 14: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,394:ERROR:Error inserting room_allotment record 15: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,395:ERROR:Error inserting room_allotment record 16: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,396:ERROR:Error inserting room_allotment record 17: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,396:ERROR:Error inserting room_allotment record 18: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,397:ERROR:Error inserting room_allotment record 19: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,398:ERROR:Error inserting room_allotment record 20: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,400:ERROR:Error inserting room_allotment record 21: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,401:ERROR:Error inserting room_allotment record 22: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,402:ERROR:Error inserting room_allotment record 23: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,402:ERROR:Error inserting room_allotment record 24: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,403:ERROR:Error inserting room_allotment record 25: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,404:ERROR:Error inserting room_allotment record 26: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,404:ERROR:Error inserting room_allotment record 27: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,406:ERROR:Error inserting room_allotment record 28: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,407:ERROR:Error inserting room_allotment record 29: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,408:ERROR:Error inserting room_allotment record 30: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,409:ERROR:Error inserting room_allotment record 31: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,409:ERROR:Error inserting room_allotment record 32: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,410:ERROR:Error inserting room_allotment record 33: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,411:ERROR:Error inserting room_allotment record 34: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,412:ERROR:Error inserting room_allotment record 35: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,413:ERROR:Error inserting room_allotment record 36: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,415:ERROR:Error inserting room_allotment record 37: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,416:ERROR:Error inserting room_allotment record 38: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,416:ERROR:Error inserting room_allotment record 39: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,417:ERROR:Error inserting room_allotment record 40: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,418:ERROR:Error inserting room_allotment record 41: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,419:ERROR:Error inserting room_allotment record 42: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,420:ERROR:Error inserting room_allotment record 43: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,421:ERROR:Error inserting room_allotment record 44: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,422:ERROR:Error inserting room_allotment record 45: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,423:ERROR:Error inserting room_allotment record 46: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,424:ERROR:Error inserting room_allotment record 47: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,425:ERROR:Error inserting room_allotment record 48: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,426:ERROR:Error inserting room_allotment record 49: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,427:ERROR:Error inserting room_allotment record 50: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:35:35,428:INFO:Completed inserting room_allotment records.
+2024-09-21 19:35:35,436:INFO:Inserted 100 records into attendance table.
+2024-09-21 19:35:35,441:ERROR:Error inserting into hostel_fee table: 1062 (23000): Duplicate entry '11-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:35:35,441:ERROR:Error: 1062 (23000): Duplicate entry '11-2024-09-20' for key 'hostel_fee.Student_ID'
+2024-09-21 19:35:35,445:INFO:MySQL connection is closed.
+2024-09-21 19:36:43,647:INFO:Connected to MySQL database
+2024-09-21 19:36:43,675:INFO:Truncated table attendance.
+2024-09-21 19:36:43,700:INFO:Truncated table hostel_fee.
+2024-09-21 19:36:43,726:INFO:Truncated table room_allotment.
+2024-09-21 19:36:43,755:INFO:Truncated table student.
+2024-09-21 19:36:43,776:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 19:36:43,801:INFO:Truncated table room.
+2024-09-21 19:36:43,823:INFO:Truncated table warden.
+2024-09-21 19:36:43,850:INFO:Truncated table hostel.
+2024-09-21 19:36:43,889:INFO:Truncated table hostel_manager.
+2024-09-21 19:36:43,915:INFO:Truncated table faculty.
+2024-09-21 19:36:43,921:INFO:Inserted 10 records into faculty table.
+2024-09-21 19:36:43,925:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 19:36:43,928:INFO:Inserted 5 records into hostel table.
+2024-09-21 19:36:43,935:INFO:Inserted 10 records into warden table.
+2024-09-21 19:36:43,944:INFO:Inserted 100 records into room table.
+2024-09-21 19:36:43,945:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 19:36:43,946:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 19:36:43,972:INFO:Inserted 50 records into student table.
+2024-09-21 19:36:43,973:INFO:Starting to insert room_allotment records...
+2024-09-21 19:36:43,977:ERROR:Error inserting room_allotment record 1: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,978:ERROR:Error inserting room_allotment record 2: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,979:ERROR:Error inserting room_allotment record 3: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,980:ERROR:Error inserting room_allotment record 4: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,982:ERROR:Error inserting room_allotment record 5: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,983:ERROR:Error inserting room_allotment record 6: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,984:ERROR:Error inserting room_allotment record 7: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,985:ERROR:Error inserting room_allotment record 8: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,986:ERROR:Error inserting room_allotment record 9: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,987:ERROR:Error inserting room_allotment record 10: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,988:ERROR:Error inserting room_allotment record 11: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,990:ERROR:Error inserting room_allotment record 12: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,991:ERROR:Error inserting room_allotment record 13: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,993:ERROR:Error inserting room_allotment record 14: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,993:ERROR:Error inserting room_allotment record 15: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,994:ERROR:Error inserting room_allotment record 16: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,995:ERROR:Error inserting room_allotment record 17: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,996:ERROR:Error inserting room_allotment record 18: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,997:ERROR:Error inserting room_allotment record 19: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,998:ERROR:Error inserting room_allotment record 20: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:43,999:ERROR:Error inserting room_allotment record 21: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,000:ERROR:Error inserting room_allotment record 22: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,001:ERROR:Error inserting room_allotment record 23: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,002:ERROR:Error inserting room_allotment record 24: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,002:ERROR:Error inserting room_allotment record 25: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,003:ERROR:Error inserting room_allotment record 26: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,005:ERROR:Error inserting room_allotment record 27: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,005:ERROR:Error inserting room_allotment record 28: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,006:ERROR:Error inserting room_allotment record 29: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,007:ERROR:Error inserting room_allotment record 30: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,008:ERROR:Error inserting room_allotment record 31: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,009:ERROR:Error inserting room_allotment record 32: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,010:ERROR:Error inserting room_allotment record 33: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,011:ERROR:Error inserting room_allotment record 34: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,012:ERROR:Error inserting room_allotment record 35: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,013:ERROR:Error inserting room_allotment record 36: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,014:ERROR:Error inserting room_allotment record 37: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,015:ERROR:Error inserting room_allotment record 38: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,016:ERROR:Error inserting room_allotment record 39: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,016:ERROR:Error inserting room_allotment record 40: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,017:ERROR:Error inserting room_allotment record 41: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,018:ERROR:Error inserting room_allotment record 42: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,019:ERROR:Error inserting room_allotment record 43: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,020:ERROR:Error inserting room_allotment record 44: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,021:ERROR:Error inserting room_allotment record 45: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,022:ERROR:Error inserting room_allotment record 46: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,022:ERROR:Error inserting room_allotment record 47: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,023:ERROR:Error inserting room_allotment record 48: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,024:ERROR:Error inserting room_allotment record 49: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,025:ERROR:Error inserting room_allotment record 50: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 19:36:44,025:INFO:Completed inserting room_allotment records.
+2024-09-21 19:36:44,034:INFO:Inserted 100 records into attendance table.
+2024-09-21 19:36:44,056:INFO:All changes committed to the database.
+2024-09-21 19:36:44,057:INFO:MySQL connection is closed.
+2024-09-21 22:00:06,582:INFO:Connected to MySQL database
+2024-09-21 22:00:06,617:INFO:Truncated table attendance.
+2024-09-21 22:00:06,646:INFO:Truncated table hostel_fee.
+2024-09-21 22:00:06,684:INFO:Truncated table room_allotment.
+2024-09-21 22:00:06,714:INFO:Truncated table student.
+2024-09-21 22:00:06,741:INFO:Truncated table faculty_assigned_floor.
+2024-09-21 22:00:06,763:INFO:Truncated table room.
+2024-09-21 22:00:06,795:INFO:Truncated table warden.
+2024-09-21 22:00:06,823:INFO:Truncated table hostel.
+2024-09-21 22:00:06,854:INFO:Truncated table hostel_manager.
+2024-09-21 22:00:06,892:INFO:Truncated table faculty.
+2024-09-21 22:00:06,899:INFO:Inserted 10 records into faculty table.
+2024-09-21 22:00:06,901:INFO:Inserted 5 records into hostel_manager table.
+2024-09-21 22:00:06,904:INFO:Inserted 5 records into hostel table.
+2024-09-21 22:00:06,909:INFO:Inserted 10 records into warden table.
+2024-09-21 22:00:06,912:INFO:Inserted 100 records into room table.
+2024-09-21 22:00:06,913:INFO:Inserted rooms with Room_IDs: [100, 99, 98, 97, 96, 95, 94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 72, 71, 70, 69, 68, 67, 66, 65, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+2024-09-21 22:00:06,915:INFO:Inserted 15 records into faculty_assigned_floor table.
+2024-09-21 22:00:06,934:INFO:Inserted 50 records into student table.
+2024-09-21 22:00:06,934:INFO:Starting to insert room_allotment records...
+2024-09-21 22:00:06,938:ERROR:Error inserting room_allotment record 1: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,939:ERROR:Error inserting room_allotment record 2: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,941:ERROR:Error inserting room_allotment record 3: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,942:ERROR:Error inserting room_allotment record 4: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,942:ERROR:Error inserting room_allotment record 5: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,943:ERROR:Error inserting room_allotment record 6: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,943:ERROR:Error inserting room_allotment record 7: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,945:ERROR:Error inserting room_allotment record 8: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,946:ERROR:Error inserting room_allotment record 9: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,946:ERROR:Error inserting room_allotment record 10: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,946:ERROR:Error inserting room_allotment record 11: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,947:ERROR:Error inserting room_allotment record 12: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,947:ERROR:Error inserting room_allotment record 13: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,949:ERROR:Error inserting room_allotment record 14: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,950:ERROR:Error inserting room_allotment record 15: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,950:ERROR:Error inserting room_allotment record 16: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,950:ERROR:Error inserting room_allotment record 17: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,950:ERROR:Error inserting room_allotment record 18: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,952:ERROR:Error inserting room_allotment record 19: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,952:ERROR:Error inserting room_allotment record 20: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,953:ERROR:Error inserting room_allotment record 21: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,953:ERROR:Error inserting room_allotment record 22: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,954:ERROR:Error inserting room_allotment record 23: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,955:ERROR:Error inserting room_allotment record 24: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,957:ERROR:Error inserting room_allotment record 25: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,958:ERROR:Error inserting room_allotment record 26: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,958:ERROR:Error inserting room_allotment record 27: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,959:ERROR:Error inserting room_allotment record 28: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,960:ERROR:Error inserting room_allotment record 29: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,962:ERROR:Error inserting room_allotment record 30: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,962:ERROR:Error inserting room_allotment record 31: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,963:ERROR:Error inserting room_allotment record 32: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,964:ERROR:Error inserting room_allotment record 33: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,964:ERROR:Error inserting room_allotment record 34: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,965:ERROR:Error inserting room_allotment record 35: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,966:ERROR:Error inserting room_allotment record 36: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,966:ERROR:Error inserting room_allotment record 37: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,967:ERROR:Error inserting room_allotment record 38: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,969:ERROR:Error inserting room_allotment record 39: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,970:ERROR:Error inserting room_allotment record 40: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,971:ERROR:Error inserting room_allotment record 41: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,972:ERROR:Error inserting room_allotment record 42: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,972:ERROR:Error inserting room_allotment record 43: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,973:ERROR:Error inserting room_allotment record 44: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,974:ERROR:Error inserting room_allotment record 45: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,975:ERROR:Error inserting room_allotment record 46: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,976:ERROR:Error inserting room_allotment record 47: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,976:ERROR:Error inserting room_allotment record 48: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,977:ERROR:Error inserting room_allotment record 49: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,978:ERROR:Error inserting room_allotment record 50: 1644 (45000): Failed to retrieve Fee_Amount from Room table.
+2024-09-21 22:00:06,978:INFO:Completed inserting room_allotment records.
+2024-09-21 22:00:06,982:INFO:Inserted 100 records into attendance table.
+2024-09-21 22:00:06,992:INFO:All changes committed to the database.
+2024-09-21 22:00:06,994:INFO:MySQL connection is closed.
