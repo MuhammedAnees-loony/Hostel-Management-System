@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saintgits Hostel Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="login-id">Login ID</label>
+            <input type="text" id="login-id" name="login-id" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="user-type">Type of User</label>
+            <select id="user-type" name="user-type" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+                <option value="manager">Manager</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the form from submitting normally
+
+            // Get user input values
+            var loginId = document.getElementById('login-id').value;
+            var userType = document.getElementById('user-type').value;
+
+            // Static values for room and hostel (in a real system, you'd retrieve these from a server)
+            var roomNumber = "101"; // Example room number
+            var hostelName = "Saintgits Hostel";
+
+            // Store the data in localStorage
+            localStorage.setItem('loginId', loginId);
+            localStorage.setItem('userType', userType);
+            localStorage.setItem('roomNumber', roomNumber);
+            localStorage.setItem('hostelName', hostelName);
+
+            // Redirect to the dashboard
+            window.location.href = "dashboard.html";
+        });
+    </script>
+</body>
+</html>
