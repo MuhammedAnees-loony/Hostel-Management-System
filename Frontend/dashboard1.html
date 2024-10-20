@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="dashboard1.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="menu-btn" class="fas fa-bars"></div>   
+            <nav class="navbar">
+                <a href="fee.html">Fee Payment</a>
+                <a href="complaint.html">Complaints</a>
+                <a href="attendance.html">Attendance</a>
+            </nav>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 style="color: #ff7c3d;">Welcome to <span class="highlight">Saintgits Hostel Management System</span></h1>
+        <p><strong>Name:</strong> <span id="loginId"></span></p>
+        <p><strong>Room Number:</strong> <span id="roomNumber"></span></p>
+        <p><strong>Hostel Name:</strong> <span id="hostelName"></span></p>
+        <p><strong>User Type:</strong> <span id="userType"></span></p>    </section>
+
+    <section id="fee-payment" class="card-section">
+        <div class="card">
+            <h2>Fee Payment</h2>
+            <p>Pay your hostel fees securely.</p>
+            <button class="btn"><a href="fee.html">Go to Payment</a></button>
+        </div>
+        <div class="card" id="complaints">
+            <h2>Complaints</h2>
+            <p>Lodge a complaint about any issue in the hostel.</p>
+            <button class="btn"><a href="complaint.html">File Complaint</a></button>
+        </div>
+        <div class="card" id="attendance">
+            <h2>Attendance</h2>
+            <p>Check your attendance record.</p>
+            <button class="btn"><a href="attendance.html">View Attendance</a></button>
+        </div>
+        <!-- <div class="card" id="profile">
+            <h2>Profile</h2>
+            <p>Update your profile details.</p>
+            <button class="btn"><a href="#profile">Edit Profile</a></button>
+        </div> -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Sangtits Hostel Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="dashboard1.js"></script>
+</body>
+</html>

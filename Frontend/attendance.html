@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance & Leave Management - Saintgits Hostel</title>
+    <link rel="stylesheet" href="attendance.css">
+</head>
+<body>
+
+    <header>
+        <h1>Attendance & Leave Management</h1>
+        <p>Track your attendance and leave records</p>
+    </header>
+
+    <!-- Attendance Section -->
+    <div class="filter-section">
+        <label for="date-filter">Filter Attendance by Date:</label>
+        <input type="date" id="date-filter">
+        <button id="filter-btn">Filter Attendance</button>
+    </div>
+
+    <table id="attendance-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Attendance data will be populated here by JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Leave Section -->
+    <section class="leave-section">
+        <h2>Leave Status</h2>
+
+        <div class="leave-form">
+            <label for="leave-date">Leave Date:</label>
+            <input type="date" id="leave-date" required>
+
+            <label for="leave-reason">Reason:</label>
+            <input type="text" id="leave-reason" placeholder="Reason for leave" required>
+
+            <label for="leave-duration">Duration (in days):</label>
+            <input type="number" id="leave-duration" min="1" required>
+
+            <button id="mark-leave-btn">Mark Leave</button>
+        </div>
+
+        <table id="leave-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Reason</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Leave data will be populated here by JavaScript -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="attendance.js"></script> <!-- Link to your JS -->
+</body>
+</html>
