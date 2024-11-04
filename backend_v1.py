@@ -26,7 +26,12 @@ required_tables = [
     'student',
     'warden'
 ]
-
+ROLE_MAPPING = {
+    "student": 1,
+    "warden": 2,
+    "manager": 3,
+    "faculty": 4
+}
 def check_tables_exist():
     # Establish a connection to the database
     connection = mysql.connector.connect(**db_config)
@@ -63,11 +68,20 @@ def check_tables():
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    print("Login Request Data:", data)  # Print received login data
-    username = data.get('username')
-    password = data.get('password')
+    print("Login Request Data:", data)  # Debug: Print received login data
 
-    # Check if tables exist
+    login_id = data.get('loginId')
+    password = data.get('password')
+    user_type = data.get('userType')
+    # Convert user_type to the corresponding Role_ID
+    role_id = ROLE_MAPPING.get(user_type.lower())
+    if role_id is None:
+        return jsonify({
+            'status': 'fail',
+            'message': 'Invalid user type'
+        }), 400
+
+    # Check if required tables exist in the database
     missing_tables = check_tables_exist()
     if missing_tables:
         return jsonify({
@@ -79,34 +93,58 @@ def login():
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor(dictionary=True)
 
-    # Query to check if the username and password match
+    # Verify credentials in the 'credentials' table
     query = """
     SELECT User_Name, Password, Role_ID
     FROM credentials
-    WHERE User_Name = %s AND Password = %s AND Status = 'active';
+    WHERE User_Name = %s AND Password = %s AND Role_ID = %s AND Status = 'active';
     """
-    
-    cursor.execute(query, (username, password))
-    result = cursor.fetchone()
+    cursor.execute(query, (login_id, password, role_id))
+    credentials_result = cursor.fetchone()
 
-    cursor.close()
-    connection.close()
+    if credentials_result:
+        # Retrieve user-specific data based on Role_ID
+        user_data = None
+        if user_type == "student":
+            user_query = "SELECT * FROM student WHERE User_Name = %s"
+            cursor.execute(user_query, (login_id,))
+            user_data = cursor.fetchone()
+        elif user_type == "faculty":
+            user_query = "SELECT * FROM faculty WHERE User_Name = %s"
+            cursor.execute(user_query, (login_id,))
+            user_data = cursor.fetchone()
+        elif user_type == "manager":
+            user_query = "SELECT * FROM hostel_manager WHERE User_Name = %s"
+            cursor.execute(user_query, (login_id,))
+            user_data = cursor.fetchone()
 
-    if result:
-        return jsonify({
-            'status': 'success',
-            'message': 'Login successful',
-            'data': {
-                'username': result['User_Name'],
-                'role_id': result['Role_ID']
-            }
-        }), 200
+        cursor.close()
+        connection.close()
+
+        # If user data is found, return it to the frontend
+        if user_data:
+            return jsonify({
+                'status': 'success',
+                'message': 'Login successful',
+                'data': {
+                    'username': credentials_result['User_Name'],
+                    'role_id': credentials_result['Role_ID'],
+                    'user_details': user_data  # Send all user details from the specific table
+                }
+            }), 200
+        else:
+            return jsonify({
+                'status': 'fail',
+                'message': 'User details not found in specific table'
+            }), 404
+
     else:
+        cursor.close()
+        connection.close()
         return jsonify({
             'status': 'fail',
-            'message': 'Invalid username or password'
+            'message': 'Invalid login ID, password, or user type'
         }), 401
-
 @app.route('/register_user', methods=['POST'])
 def register_user():
     data = request.get_json()
