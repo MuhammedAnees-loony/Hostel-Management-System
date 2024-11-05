@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 import mysql.connector
-
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "https://muhammedanees-loony.github.io"}})
 # Database connection settings
 db_config = {
     'host': 'localhost',
@@ -65,7 +65,7 @@ def check_tables():
             'message': 'All required tables are present.'
         }), 200
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'OPTIONS'])
 def login():
     data = request.get_json()
     print("Login Request Data:", data)  # Debug: Print received login data
