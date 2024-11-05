@@ -8,7 +8,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
     try {
         // Send POST request to the backend with loginId, userType, and password
-        const response = await fetch("http://127.0.0.1:5000", {
+        const response = await fetch("http://127.0.0.1:5000/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
