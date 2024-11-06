@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="attendance1.css">
+</head>
+<body>
+    <h1>Consolidated Attendance Report</h1>
+    
+    <form id="date-form" action="/attendance_report" method="POST">
+        <label for="from-date">From Date:</label>
+        <input type="date" id="from-date" name="from_date" required>
+
+        <label for="to-date">To Date:</label>
+        <input type="date" id="to-date" name="to_date" required>
+
+        <button type="submit">Generate Report</button>
+    </form>
+
+    <table id="attendance-table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Attendance Days</th>
+                <th>Total Days</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row; backend will populate with actual data -->
+            <tr>
+                <td>101</td>
+                <td>Jane Doe</td>
+                <td>22</td>
+                <td>30</td>
+                <td>73%</td>
+            </tr>
+            <!-- More rows will appear here dynamically -->
+        </tbody>
+    </table>
+
+    <script src="attendance1.js"></script>
+</body>
+</html>
