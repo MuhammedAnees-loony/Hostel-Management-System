@@ -100,24 +100,26 @@ def login():
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor(dictionary=True)
     query = """
-    SELECT User_Name, Password, Role_ID
+    SELECT User_ID, Password, Role_ID
     FROM credentials
     WHERE User_Name = %s AND Password = %s AND Role_ID = %s AND Status = 'active';
     """
     cursor.execute(query, (login_id, password, role_id))
     credentials_result = cursor.fetchone()
+    cursor.nextset()
 
     if credentials_result:
         print("Credentials validated for user:", login_id)
+        user_id = credentials_result['User_ID']
         user_data = None
         if user_type == "student":
-            user_query = "SELECT * FROM student WHERE User_Name = %s"
+            user_query = "SELECT * FROM student WHERE Student_ID = %s"
         elif user_type == "faculty":
-            user_query = "SELECT * FROM faculty WHERE User_Name = %s"
+            user_query = "SELECT * FROM faculty WHERE User_ID = %s"
         elif user_type == "manager":
-            user_query = "SELECT * FROM hostel_manager WHERE User_Name = %s"
+            user_query = "SELECT * FROM hostel_manager WHERE User_ID = %s"
 
-        cursor.execute(user_query, (login_id,))
+        cursor.execute(user_query, (user_id,))
         user_data = cursor.fetchone()
 
         cursor.close()
@@ -129,7 +131,7 @@ def login():
                 'status': 'success',
                 'message': 'Login successful',
                 'data': {
-                    'username': credentials_result['User_Name'],
+                    'username': login_id,
                     'role_id': credentials_result['Role_ID'],
                     'user_details': user_data
                 }
