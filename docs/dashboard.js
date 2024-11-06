@@ -18,7 +18,19 @@ document.getElementById('loginId').textContent = fullName || 'Not Available';
 document.getElementById('userType').textContent = userType || 'Not Available';
 document.getElementById('roomNumber').textContent = roomNumber || 'Not Available';
 document.getElementById('hostelName').textContent = hostelName || 'Not Available';
-
+// Debugging - Log all retrieved data
+console.log("Retrieved from localStorage:");
+console.log("Username (loginId):", loginId);
+console.log("User Type (role_id):", userType);
+console.log("Room Number:", roomNumber);
+console.log("Hostel Name:", hostelName);
+console.log("Full Name:", fullName);
+console.log("Date of Birth:", dob);
+console.log("Gender:", gender);
+console.log("Contact:", contact);
+console.log("Email:", email);
+console.log("Address:", address);
+console.log("Year of Study:", yearOfStudy)
 // Additional user details (add these elements in HTML if needed)
 document.getElementById('dob').textContent = dob || 'Not Available';
 document.getElementById('gender').textContent = gender || 'Not Available';
