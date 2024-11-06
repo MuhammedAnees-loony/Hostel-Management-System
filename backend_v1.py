@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
+
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://muhammedanees-loony.github.io"}})
+CORS(app)
+
 # Database connection settings
 db_config = {
     'host': 'localhost',
@@ -26,17 +28,18 @@ required_tables = [
     'student',
     'warden'
 ]
+
 ROLE_MAPPING = {
     "student": 1,
     "warden": 2,
     "manager": 3,
     "faculty": 4
 }
+
 def check_tables_exist():
-    # Establish a connection to the database
+    print("Checking if all required tables exist...")
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
-
     missing_tables = []
     
     for table in required_tables:
@@ -44,22 +47,24 @@ def check_tables_exist():
         result = cursor.fetchone()
         if not result:
             missing_tables.append(table)
-
+            print(f"Table missing: {table}")
+    
     cursor.close()
     connection.close()
-
     return missing_tables
 
 @app.route('/check_tables', methods=['GET'])
 def check_tables():
+    print("Endpoint /check_tables called")
     missing_tables = check_tables_exist()
-
     if missing_tables:
+        print("Missing tables:", missing_tables)
         return jsonify({
             'status': 'fail',
             'message': 'Missing tables: ' + ', '.join(missing_tables)
         }), 500
     else:
+        print("All required tables are present.")
         return jsonify({
             'status': 'success',
             'message': 'All required tables are present.'
@@ -67,33 +72,33 @@ def check_tables():
 
 @app.route('/login', methods=['POST', 'OPTIONS'])
 def login():
+    if request.method == 'OPTIONS':
+        print("OPTIONS request received for /login")
+        response = jsonify({'status': 'preflight check successful'})
+        response.headers.add("Access-Control-Allow-Origin", "https://muhammedanees-loony.github.io")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+        response.headers.add("Access-Control-Allow-Methods", "POST,OPTIONS")
+        return response, 200
+
     data = request.get_json()
-    print("Login Request Data:", data)  # Debug: Print received login data
+    print("Login request data received:", data)
 
     login_id = data.get('loginId')
     password = data.get('password')
     user_type = data.get('userType')
-    # Convert user_type to the corresponding Role_ID
     role_id = ROLE_MAPPING.get(user_type.lower())
+    
     if role_id is None:
-        return jsonify({
-            'status': 'fail',
-            'message': 'Invalid user type'
-        }), 400
+        print("Invalid user type:", user_type)
+        return jsonify({'status': 'fail', 'message': 'Invalid user type'}), 400
 
-    # Check if required tables exist in the database
     missing_tables = check_tables_exist()
     if missing_tables:
-        return jsonify({
-            'status': 'fail',
-            'message': 'Missing tables: ' + ', '.join(missing_tables)
-        }), 500
+        print("Missing tables detected in /login:", missing_tables)
+        return jsonify({'status': 'fail', 'message': 'Missing tables: ' + ', '.join(missing_tables)}), 500
 
-    # Establish a connection to the database
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor(dictionary=True)
-
-    # Verify credentials in the 'credentials' table
     query = """
     SELECT User_Name, Password, Role_ID
     FROM credentials
@@ -103,69 +108,57 @@ def login():
     credentials_result = cursor.fetchone()
 
     if credentials_result:
-        # Retrieve user-specific data based on Role_ID
+        print("Credentials validated for user:", login_id)
         user_data = None
         if user_type == "student":
             user_query = "SELECT * FROM student WHERE User_Name = %s"
-            cursor.execute(user_query, (login_id,))
-            user_data = cursor.fetchone()
         elif user_type == "faculty":
             user_query = "SELECT * FROM faculty WHERE User_Name = %s"
-            cursor.execute(user_query, (login_id,))
-            user_data = cursor.fetchone()
         elif user_type == "manager":
             user_query = "SELECT * FROM hostel_manager WHERE User_Name = %s"
-            cursor.execute(user_query, (login_id,))
-            user_data = cursor.fetchone()
+
+        cursor.execute(user_query, (login_id,))
+        user_data = cursor.fetchone()
 
         cursor.close()
         connection.close()
 
-        # If user data is found, return it to the frontend
         if user_data:
+            print(f"User data found for {user_type}:", user_data)
             return jsonify({
                 'status': 'success',
                 'message': 'Login successful',
                 'data': {
                     'username': credentials_result['User_Name'],
                     'role_id': credentials_result['Role_ID'],
-                    'user_details': user_data  # Send all user details from the specific table
+                    'user_details': user_data
                 }
             }), 200
         else:
-            return jsonify({
-                'status': 'fail',
-                'message': 'User details not found in specific table'
-            }), 404
-
+            print(f"No user data found in specific table for {user_type}.")
+            return jsonify({'status': 'fail', 'message': 'User details not found in specific table'}), 404
     else:
         cursor.close()
         connection.close()
-        return jsonify({
-            'status': 'fail',
-            'message': 'Invalid login ID, password, or user type'
-        }), 401
+        print("Invalid credentials provided.")
+        return jsonify({'status': 'fail', 'message': 'Invalid login ID, password, or user type'}), 401
+
 @app.route('/register_user', methods=['POST'])
 def register_user():
     data = request.get_json()
-    print("Registration Request Data:", data)  # Print received registration data
-    user_type = data.get('user_type')
+    print("Registration request data received:", data)
 
-    # Common fields for all user types
+    user_type = data.get('user_type')
     name = data.get('name')
     contact = data.get('contact')
     email = data.get('email')
     assigned_floor = data.get('assigned_floor')
 
-    # Check if tables exist
     missing_tables = check_tables_exist()
     if missing_tables:
-        return jsonify({
-            'status': 'fail',
-            'message': 'Missing tables: ' + ', '.join(missing_tables)
-        }), 500
+        print("Missing tables detected in /register_user:", missing_tables)
+        return jsonify({'status': 'fail', 'message': 'Missing tables: ' + ', '.join(missing_tables)}), 500
 
-    # Establish a connection to the database
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
 
@@ -175,7 +168,6 @@ def register_user():
             gender = data.get('gender')
             address = data.get('address')
             year_of_study = data.get('year_of_study')
-
             query = """
             INSERT INTO student (Name, DOB, Gender, Contact, Email, Address, Year_of_Study)
             VALUES (%s, %s, %s, %s, %s, %s, %s);
@@ -183,15 +175,10 @@ def register_user():
             cursor.execute(query, (name, dob, gender, contact, email, address, year_of_study))
             connection.commit()
             student_id = cursor.lastrowid
-            return jsonify({
-                'status': 'success',
-                'message': 'Student registered successfully',
-                'student_id': student_id
-            }), 201
-
+            print("Student registered with ID:", student_id)
+            return jsonify({'status': 'success', 'message': 'Student registered successfully', 'student_id': student_id}), 201
         elif user_type == 'faculty':
             department = data.get('department')
-
             query = """
             INSERT INTO faculty (Name, Department, Contact, Email, Assigned_Floor)
             VALUES (%s, %s, %s, %s, %s);
@@ -199,12 +186,8 @@ def register_user():
             cursor.execute(query, (name, department, contact, email, assigned_floor))
             connection.commit()
             faculty_id = cursor.lastrowid
-            return jsonify({
-                'status': 'success',
-                'message': 'Faculty registered successfully',
-                'faculty_id': faculty_id
-            }), 201
-
+            print("Faculty registered with ID:", faculty_id)
+            return jsonify({'status': 'success', 'message': 'Faculty registered successfully', 'faculty_id': faculty_id}), 201
         elif user_type == 'warden':
             address = data.get('address')
             hostel_id = data.get('hostel_id')
@@ -215,12 +198,8 @@ def register_user():
             cursor.execute(query, (name, contact, address, email, None, hostel_id, assigned_floor))
             connection.commit()
             warden_id = cursor.lastrowid
-            return jsonify({
-                'status': 'success',
-                'message': 'Warden registered successfully',
-                'warden_id': warden_id
-            }), 201
-
+            print("Warden registered with ID:", warden_id)
+            return jsonify({'status': 'success', 'message': 'Warden registered successfully', 'warden_id': warden_id}), 201
         elif user_type == 'hostel_manager':
             query = """
             INSERT INTO hostel_manager (Name, Contact, Email)
@@ -229,24 +208,15 @@ def register_user():
             cursor.execute(query, (name, contact, email))
             connection.commit()
             manager_id = cursor.lastrowid
-            return jsonify({
-                'status': 'success',
-                'message': 'Hostel Manager registered successfully',
-                'manager_id': manager_id
-            }), 201
-
+            print("Hostel Manager registered with ID:", manager_id)
+            return jsonify({'status': 'success', 'message': 'Hostel Manager registered successfully', 'manager_id': manager_id}), 201
         else:
-            return jsonify({
-                'status': 'fail',
-                'message': 'Invalid user type'
-            }), 400
-
+            print("Invalid user type provided during registration:", user_type)
+            return jsonify({'status': 'fail', 'message': 'Invalid user type'}), 400
     except mysql.connector.Error as err:
-        connection.rollback()  # Rollback if there is an error
-        return jsonify({
-            'status': 'fail',
-            'message': str(err)
-        }), 500
+        print("Database error during registration:", err)
+        connection.rollback()
+        return jsonify({'status': 'fail', 'message': str(err)}), 500
     finally:
         cursor.close()
         connection.close()
