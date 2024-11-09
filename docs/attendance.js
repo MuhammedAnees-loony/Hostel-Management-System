@@ -60,10 +60,15 @@ async function filterAttendance() {
 
         if (response.ok && result.status === 'success') {
             console.log("Response Data:",result.data);
-            const formattedData = result.data.map(record => ({
-                date: record.Date,
-                status: record.Status
-            }));
+            const formattedData = result.data.map(record => {
+                // Convert the date string to a Date object and format it
+                const dateObj = new Date(record.Date);
+                const formattedDate = dateObj.toISOString().split('T')[0]; // Get only the date part
+                return {
+                    date: formattedDate,
+                    status: record.Status
+                };
+            });
             displayAttendance(formattedData);
         } else {
             alert(result.message || 'Failed to fetch attendance records.');
