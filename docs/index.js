@@ -46,7 +46,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                 // Redirect based on user type
                 if (userType === "manager") {
                     console.log("Redirecting to manager dashboard.");
-                    window.location.href = "dashboard.html"; // Redirect to manager dashboard
+                    window.location.href = "manager.html"; // Redirect to manager dashboard
                 } else if (userType === "student" || userType === "faculty") {
                     console.log("Redirecting to student/faculty dashboard.");
                     window.location.href = "dashboard1.html"; // Redirect to student/faculty dashboard

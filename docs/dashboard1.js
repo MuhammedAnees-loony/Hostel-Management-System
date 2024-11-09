@@ -18,7 +18,7 @@ const yearOfStudy = localStorage.getItem('Year_of_Study'); // Year of study
 
 // Display the data in the corresponding HTML elements
 document.getElementById('loginId').textContent = fullName || 'Not Available';
-document.getElementById('userType').textContent = userType || 'Not Available';
+
 document.getElementById('roomNumber').textContent = roomNumber || 'Not Available';
 document.getElementById('hostelName').textContent = hostelName || 'Not Available';
 // Debugging - Log all retrieved data
