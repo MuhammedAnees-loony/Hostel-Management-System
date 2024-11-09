@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome - Saintgits Hostel Management</title>
+    <title>Hostel Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <div class="main-container">
-        <div class="dashboard-menu">
-            <h2>Dashboard</h2>
-            <ul>
-                <li><a href="fee.html">Fee Payment</a></li>
-                <li><a href="complaint.html">Complaints</a></li>
-                <li><a href="attendence1.html">Attendence</a></li>
-            </ul>
-        </div>
-
-        <div class="dashboard-content">
-            <h2>Welcome to Saintgits Hostel Management System</h2>
-            <div class="user-info">
-                <p><strong>Name:</strong> <span id="loginId"></span></p>
-                <p><strong>Room Number:</strong> <span id="roomNumber"></span></p>
-                <p><strong>Hostel Name:</strong> <span id="hostelName"></span></p>
-                <p><strong>User Type:</strong> <span id="userType"></span></p>
-                <p><strong>Date of Birth:</strong> <span id="dob"></span></p>
-                <p><strong>Gender:</strong> <span id="gender"></span></p>
-                <p><strong>Contact:</strong> <span id="contact"></span></p>
-                <p><strong>Email:</strong> <span id="email"></span></p>
-                <p><strong>Address:</strong> <span id="address"></span></p>
-                <p><strong>Year of Study:</strong> <span id="yearOfStudy"></span></p>
-
+    <header>
+        <nav>
+            <div id="menu-btn" class="fas fa-bars"></div>   
+            <div class="navbar">
+                <a href="attendance1.html">Attendance</a>
+                <a href="fee1.html">Fee Status</a>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- Link to the external JavaScript file -->
+    <section class="hero">
+        <h1 style="color: #ff7c3d;">Welcome to <span class="highlight">Saintgits Hostel Management System</span></h1>
+        <p><strong>Warden Name:</strong> <span id="wardenName"></span></p>
+        <p><strong>Contact:</strong> <span id="wardenContact"></span></p>
+        <p><strong>Email:</strong> <span id="wardenEmail"></span></p>
+        <p><strong>Hostel:</strong> <span id="hostelName"></span></p>
+    </section>
+
+    <section id="warden-actions" class="card-section">
+        <div class="card" id="attendance">
+            <h2>Attendance</h2>
+            <p>View attendance records for all hostel students.</p>
+            <button class="btn"><a href="attendance1.html">View Attendance</a></button>
+        </div>
+        <div class="card" id="fee-status">
+            <h2>Fee Status</h2>
+            <p>Check fee payment status for all hostel students.</p>
+            <button class="btn"><a href="fee1.html">View Fee Status</a></button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Saintgits Hostel Management System. All rights reserved.</p>
+    </footer>
+
     <script src="dashboard.js"></script>
 </body>
 </html>
