@@ -44,6 +44,7 @@ async function filterAttendance() {
 
     try {
         // Send POST request to the backend
+        console.log("Sending request to backend...")
         const response = await fetch('http://127.0.0.1:5000/attendance', {
             method: 'POST',
             headers: {
@@ -99,7 +100,7 @@ function markLeave() {
 displayAttendance(attendanceData);
 
 // Event listener for the filter button
-document.getElementById('filter-btn').addEventListener('click', filterAttendance());
+document.getElementById('filter-btn').addEventListener('click', filterAttendance);
 
 // Event listener for the mark leave button
 document.getElementById('mark-leave-btn').addEventListener('click', markLeave);
