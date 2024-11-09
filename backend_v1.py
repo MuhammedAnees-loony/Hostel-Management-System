@@ -265,7 +265,7 @@ def upload_fee_payment():
 
     # Get the uploaded image file
     image = request.files.get('image')
-
+    
     if not user_id or not fee_category or not image:
         return jsonify({'status': 'fail', 'message': 'Missing data'}), 400
 
@@ -278,7 +278,7 @@ def upload_fee_payment():
     # Create a connection to the MySQL database
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
-
+    
     # Insert into the fee_payment table
     query = """
     INSERT INTO fee_payment (user_id, fee_category, image, payment_date)
