@@ -60,7 +60,11 @@ async function filterAttendance() {
 
         if (response.ok && result.status === 'success') {
             console.log("Response Data:",result.data);
-            displayAttendance(result.data);
+            const formattedData = result.data.map(record => ({
+                date: record.Date,
+                status: record.Status
+            }));
+            displayAttendance(formattedData);
         } else {
             alert(result.message || 'Failed to fetch attendance records.');
             displayAttendance([]); // Clear table if no data
