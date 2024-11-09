@@ -3,9 +3,9 @@ document.getElementById('fee-form').addEventListener('submit', function(event) {
 
     const feeCategory = document.getElementById('fee-category').value;
     const receipt = document.getElementById('receipt-upload').files[0];
-    if (file) {
-        console.log('File size: ', file.size);  // Output in bytes
-        if (file.size > 64 * 1024 * 1024) {    // 64MB in bytes
+    if (receipt) {
+        console.log('File size: ', receipt.size);  // Output in bytes
+        if (receipt.size > 64 * 1024 * 1024) {    // 64MB in bytes
             alert('The file is too large. Please upload a smaller file.');
         }
     }
