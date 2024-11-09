@@ -3,45 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Report</title>
-    <link rel="stylesheet" href="attendence1.css">
+    <title>Attendance Management</title>
+    <link rel="stylesheet" href="attendance1.css">
 </head>
 <body>
-    <h1>Consolidated Attendance Report</h1>
-    
-    <form id="date-form" action="/attendance_report" method="POST">
-        <label for="from-date">From Date:</label>
-        <input type="date" id="from-date" name="from_date" required>
+    <header>
+        <nav>
+            <div id="menu-btn" class="fas fa-bars"></div>   
+            <div class="navbar">
+                <a href="dashboard1.html">Dashboard</a>
+                <a href="fee1.html">Fee Status</a>
+            </div>
+        </nav>
+    </header>
 
-        <label for="to-date">To Date:</label>
-        <input type="date" id="to-date" name="to_date" required>
+    <section class="attendance-form">
+        <h1>Attendance Management</h1>
 
-        <button type="submit">Generate Report</button>
-    </form>
+        <form id="attendance-form">
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
 
-    <table id="attendance-table">
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Attendance Days</th>
-                <th>Total Days</th>
-                <th>Percentage</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Example row; backend will populate with actual data -->
-            <tr>
-                <td>101</td>
-                <td>Jane Doe</td>
-                <td>22</td>
-                <td>30</td>
-                <td>73%</td>
-            </tr>
-            <!-- More rows will appear here dynamically -->
-        </tbody>
-    </table>
+            <div class="form-group">
+                <label for="hostel-name">Select Hostel:</label>
+                <select id="hostel-name" name="hostel-name" required>
+                    <option value="">Select Hostel</option>
+                    <option value="Hostel A">Hostel A</option>
+                    <option value="Hostel B">Hostel B</option>
+                    <option value="Hostel C">Hostel C</option>
+                </select>
+            </div>
 
-    <script src="attendence1.js"></script>
+            <div class="form-group">
+                <label for="user-type">Select User Type:</label>
+                <select id="user-type" name="user-type" onchange="toggleUserType()" required>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+
+            <div id="attendance-list"></div>
+
+            <button type="submit" id="submit-btn">Submit Attendance</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Saintgits Hostel Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="attendance1.js"></script>
 </body>
 </html>
