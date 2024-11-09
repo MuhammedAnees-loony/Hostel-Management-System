@@ -115,12 +115,72 @@ def login():
         if user_type == "student":
             user_query = "SELECT * FROM student WHERE Student_ID = %s"
         elif user_type == "faculty":
-            user_query = "SELECT * FROM faculty WHERE User_ID = %s"
+            user_query = "SELECT * FROM faculty WHERE faculty_id = %s"
         elif user_type == "manager":
-            user_query = "SELECT * FROM hostel_manager WHERE User_ID = %s"
+            user_query = "SELECT * FROM hostel_manager WHERE Manager_ID = %s"
+        elif user_type== "warden":
+            user_query= "SELECT * FROM hostel_manager WHERE Warden_ID = %s"
 
         cursor.execute(user_query, (user_id,))
         user_data = cursor.fetchone()
+
+        if user_type == "student" and user_data:
+            # Retrieve Room_ID from room_allotment table
+            room_allotment_query = "SELECT Room_ID FROM room_allotment WHERE Student_ID = %s AND Is_Active = 1"
+            cursor.execute(room_allotment_query, (user_id,))
+            room_allotment_data = cursor.fetchone()
+
+            if room_allotment_data:
+                room_id = room_allotment_data['Room_ID']
+                
+                # Retrieve room details from room table
+                room_query = "SELECT Room_Number, Hostel_ID FROM room WHERE Room_ID = %s"
+                cursor.execute(room_query, (room_id,))
+                room_data = cursor.fetchone()
+
+                if room_data:
+                    room_number = room_data['Room_Number']
+                    hostel_id = room_data['Hostel_ID']
+                    
+                    # Retrieve hostel name from hostel table
+                    hostel_query = "SELECT Name FROM hostel WHERE Hostel_ID = %s"
+                    cursor.execute(hostel_query, (hostel_id,))
+                    hostel_data = cursor.fetchone()
+
+                    if hostel_data:
+                        hostel_name = hostel_data['Name']
+                        user_data['room_number'] = room_number
+                        user_data['hostel_name'] = hostel_name
+                        print(f"Room number and hostel name found: {room_number}, {hostel_name}")
+        
+        # warden
+        if user_type=="warden":
+            room_allotment_query = "SELECT Room_ID FROM room_allotment WHERE Student_ID = %s AND Is_Active = 1"
+            cursor.execute(room_allotment_query, (user_id,))
+            room_allotment_data = cursor.fetchone()
+
+            if room_allotment_data:
+                room_id = room_allotment_data['Room_ID']
+                
+                # Retrieve room details from room table
+                room_query = "SELECT Room_Number, Hostel_ID FROM room WHERE Room_ID = %s"
+                cursor.execute(room_query, (room_id,))
+                room_data = cursor.fetchone()
+
+                if room_data:
+                    room_number = room_data['Room_Number']
+                    hostel_id = room_data['Hostel_ID']
+                    
+                    # Retrieve hostel name from hostel table
+                    hostel_query = "SELECT Name FROM hostel WHERE Hostel_ID = %s"
+                    cursor.execute(hostel_query, (hostel_id,))
+                    hostel_data = cursor.fetchone()
+
+                    if hostel_data:
+                        hostel_name = hostel_data['Name']
+                        user_data['room_number'] = room_number
+                        user_data['hostel_name'] = hostel_name
+                        print(f"Room number and hostel name found: {room_number}, {hostel_name}")
 
         cursor.close()
         connection.close()
