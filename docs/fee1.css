@@ -1,0 +1,107 @@
+/* Reset and body styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* Header styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Fee verification section styling */
+.fee-verification {
+    background-color: #fff;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.fee-verification h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form-row styling for inline layout */
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Label and select inline styling */
+.form-row label,
+.form-row select {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+label {
+    margin-bottom: 0; /* Remove bottom margin for inline layout */
+}
+
+/* Select input styling */
+input[type="date"], select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* User details section styling */
+#user-details {
+    margin-top: 20px;
+}
+
+.user-info {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.user-info label {
+    display: inline-block;
+    width: 120px;
+    font-weight: normal;
+}
+
+/* Button styling */
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #218838;
+}
