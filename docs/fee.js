@@ -3,7 +3,7 @@ document.getElementById('fee-form').addEventListener('submit', function(event) {
 
     const feeCategory = document.getElementById('fee-category').value;
     const receipt = document.getElementById('receipt-upload').files[0];
-
+    
     const feeStatus = document.getElementById('fee-status');
     const feeMessage = document.getElementById('fee-message');
 
@@ -23,6 +23,39 @@ document.getElementById('fee-form').addEventListener('submit', function(event) {
 
         // Show the status message
         feeStatus.classList.remove('hidden');
+
+        // Fetch the user_id from localStorage
+        const userId = localStorage.getItem('user_id');
+        
+        if (!userId) {
+            alert("User is not logged in.");
+            return;
+        }
+
+        // Create a FormData object to send to the backend
+        const formData = new FormData();
+        formData.append('user_id', userId);
+        formData.append('fee_category', feeCategory);
+        formData.append('image', receipt);
+
+        // Send the data to the backend
+        fetch('http://127.0.0.1:5000/upload_fee_payment', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the backend
+            if (data.status === 'success') {
+                alert("Fee payment receipt uploaded successfully.");
+            } else {
+                alert("Error uploading the payment receipt.");
+            }
+        })
+        .catch(error => {
+            console.error("Error uploading the payment receipt:", error);
+            alert("An error occurred while uploading the payment receipt.");
+        });
     } else {
         alert("Please upload a fee receipt.");
     }

@@ -119,7 +119,7 @@ def login():
         elif user_type == "manager":
             user_query = "SELECT * FROM hostel_manager WHERE Manager_ID = %s"
         elif user_type== "warden":
-            user_query= "SELECT * FROM hostel_manager WHERE Warden_ID = %s"
+            user_query= "SELECT * FROM warden WHERE Warden_ID = %s"
 
         cursor.execute(user_query, (user_id,))
         user_data = cursor.fetchone()
@@ -257,6 +257,43 @@ def get_attendance():
             'status': 'fail',
             'message': 'No attendance records found for the given student and date'
         }), 404
+@app.route('/upload_fee_payment', methods=['POST'])
+def upload_fee_payment():
+    # Get form data
+    user_id = request.form.get('user_id')
+    fee_category = request.form.get('fee_category')
+
+    # Get the uploaded image file
+    image = request.files.get('image')
+
+    if not user_id or not fee_category or not image:
+        return jsonify({'status': 'fail', 'message': 'Missing data'}), 400
+
+    # Read the image as binary
+    image_binary = image.read()
+
+    # Get current timestamp
+    timestamp = datetime.now()
+
+    # Create a connection to the MySQL database
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    # Insert into the fee_payment table
+    query = """
+    INSERT INTO fee_payment (user_id, fee_category, image, payment_date)
+    VALUES (%s, %s, %s, %s)
+    """
+    cursor.execute(query, (user_id, fee_category, image_binary, timestamp))
+    
+    # Commit the transaction
+    connection.commit()
+
+    # Close the connection
+    cursor.close()
+    connection.close()
+
+    return jsonify({'status': 'success', 'message': 'Payment receipt uploaded successfully'}), 200
 
 @app.route('/register_user', methods=['POST'])
 def register_user():
