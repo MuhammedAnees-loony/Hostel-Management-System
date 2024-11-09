@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Enter Student Details</h1>
+        <form id="studentForm">
+            <label for="studentId">Student ID:</label>
+            <input type="text" id="studentId" name="studentId" required>
+
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="hostelName">Hostel Name:</label>
+            <input type="text" id="hostelName" name="hostelName" required>
+
+            <label for="roomAllotment">Room Allotment:</label>
+            <input type="text" id="roomAllotment" name="roomAllotment" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="responseMessage"></p>
+    </div>
+    <script src="student.js"></script>
+</body>
+</html>
