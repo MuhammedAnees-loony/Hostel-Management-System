@@ -51,6 +51,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
                     console.log("Redirecting to student/faculty dashboard.");
                     window.location.href = "dashboard1.html"; // Redirect to student/faculty dashboard
                 }
+                    else if(userType==="warden"){
+                        window.location.href="dashboard.html";
+                    }
             } else {
                 console.warn("Invalid credentials. Please try again.");
                 alert("Invalid credentials. Please try again.");
