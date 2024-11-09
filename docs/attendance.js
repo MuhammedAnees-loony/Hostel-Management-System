@@ -1,3 +1,4 @@
+
 const attendanceData = [];
 
 // Sample leave data

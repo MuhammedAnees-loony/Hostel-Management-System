@@ -1,74 +1,97 @@
-document.getElementById('attendance-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById('fetch-students-btn').addEventListener('click', function () {
+        const roomNumber = document.getElementById('room-number').value;
+        const hostelName = document.getElementById('hostel-name').value;
 
-    const date = document.getElementById('date').value;
-    const hostelName = document.getElementById('hostel-name').value;
-    const userType = document.getElementById('user-type').value;
+        console.log("Room Number:", roomNumber);
+        console.log("Hostel Name:", hostelName);
 
-    alert(`Attendance submitted for ${userType} on ${date} in ${hostelName}.`);
-});
+        if (!roomNumber || !hostelName) {
+            alert("Please enter room number and select hostel.");
+            return;
+        }
 
-function toggleUserType() {
-    const userType = document.getElementById('user-type').value;
-    const attendanceList = document.getElementById('attendance-list');
-    attendanceList.innerHTML = '';
+        // Fetch students from the backend based on room number and hostel
+        fetch('http://127.0.0.1:5000/api/getStudents', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ roomNumber, hostelName }),
+        })
+        .then(response => {
+            console.log("Response status:", response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log("Data received from backend:", data);
+            displayAttendanceList(data.students);
+        })
+        .catch(error => console.error('Error fetching students:', error));
+    });
 
-    if (userType === 'student') {
-        displayStudentList();
-    } else {
-        displayFacultyList();
-    }
-}
+    // Function to display students in the attendance list
+    function displayAttendanceList(students) {
+        const attendanceList = document.getElementById('attendance-list');
+        attendanceList.innerHTML = ''; // Clear existing list
 
-function displayStudentList() {
-    const students = [
-        { id: 1, name: 'John Doe', room: 'A101' },
-        { id: 2, name: 'Jane Smith', room: 'B201' },
-        { id: 3, name: 'Robert Brown', room: 'C102' }
-    ];
+        console.log("Displaying attendance list for students:", students);
 
-    const attendanceList = document.getElementById('attendance-list');
-    students.forEach(student => {
-        const listItem = document.createElement('div');
-        listItem.classList.add('attendance-list-item');
+        students.forEach(student => {
+            const studentItem = document.createElement('div');
+            studentItem.className = 'attendance-list-item';
 
-        listItem.innerHTML = `
-            <label for="student-${student.id}">${student.name} (Room: ${student.room})</label>
-            <input type="radio" id="student-${student.id}" name="attendance-${student.id}" value="present"> Present
-            <input type="radio" id="student-${student.id}-absent" name="attendance-${student.id}" value="absent"> Absent
-        `;
+            studentItem.innerHTML = `
+                <label>${student.name} (ID: ${student.id})</label>
+                <button class="mark-present-btn" data-id="${student.id}" data-name="${student.name}" data-status="Present">Present</button>
+                <button class="mark-absent-btn" data-id="${student.id}" data-name="${student.name}" data-status="Absent">Absent</button>
+            `;
 
-        attendanceList.appendChild(listItem);
+            attendanceList.appendChild(studentItem);
+        });
+
+       // Event listeners for the attendance buttons
+       document.querySelectorAll('.mark-present-btn, .mark-absent-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const studentId = this.getAttribute('data-id');
+            const studentName = this.getAttribute('data-name');
+            const status = this.getAttribute('data-status');
+            const date = document.getElementById('date').value;
+
+            console.log("Marking attendance:", {
+                studentId,
+                studentName,
+                status,
+                date
+            });
+
+            if (!date) {
+                alert("Please select a date.");
+                return;
+            }
+
+            // Send attendance status to the backend
+            fetch('http://127.0.0.1:5000/api/markAttendance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ student_id: studentId, date: date, status: status }),
+            })
+            .then(response => {
+                console.log("Attendance response status:", response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log("Response after marking attendance:", data);
+                if (data.success) {
+                    alert(`${studentName} marked as ${status}`);
+                } else {
+                    alert(`Error marking attendance for ${studentName}`);
+                }
+            })
+            .catch(error => console.error('Error submitting attendance:', error));
+        });
     });
 }
-
-function displayFacultyList() {
-    const faculties = [
-        { id: 1, name: 'Dr. Michael Johnson', department: 'Computer Science' },
-        { id: 2, name: 'Prof. Sarah Lee', department: 'Mechanical Engineering' }
-    ];
-
-    const attendanceList = document.getElementById('attendance-list');
-    faculties.forEach(faculty => {
-        const listItem = document.createElement('div');
-        listItem.classList.add('attendance-list-item');
-
-        listItem.innerHTML = `
-            <label for="faculty-${faculty.id}">${faculty.name} (Dept: ${faculty.department})</label>
-            <input type="radio" id="faculty-${faculty.id}" name="attendance-${faculty.id}" value="present"> Present
-            <input type="radio" id="faculty-${faculty.id}-absent" name="attendance-${faculty.id}" value="absent"> Absent
-        `;
-
-        attendanceList.appendChild(listItem);
-    });
-}
-// Simple validation to ensure 'from date' is not after 'to date'
-document.getElementById('date-form').addEventListener('submit', function (event) {
-    const fromDate = new Date(document.getElementById('from-date').value);
-    const toDate = new Date(document.getElementById('to-date').value);
-
-    if (fromDate > toDate) {
-        event.preventDefault();
-        alert('The "From Date" cannot be later than the "To Date". Please correct it.');
-    }
 });

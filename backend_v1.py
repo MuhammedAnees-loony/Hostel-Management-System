@@ -207,6 +207,69 @@ def login():
         connection.close()
         print("Invalid credentials provided.")
         return jsonify({'status': 'fail', 'message': 'Invalid login ID, password, or user type'}), 401
+    
+
+@app.route('/api/getStudents', methods=['POST'])
+def get_students_by_room():
+    data = request.json
+    room_number = data.get('roomNumber')
+    print(f"Received room number: {room_number}")
+
+    if not room_number:
+        print("Error: Room number is required")
+        return jsonify({"error": "Room number is required"}), 400
+
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor(dictionary=True)
+
+    try:
+        # Fetch Room_ID based on Room_Number from the room table
+        cursor.execute("SELECT Room_ID FROM room WHERE Room_Number = %s", (room_number,))
+        room = cursor.fetchone()
+        print(f"Room query result: {room}")
+
+        if not room:
+            print("Error: Room not found")
+            return jsonify({"error": "Room not found"}), 404
+
+        room_id = room["Room_ID"]
+        print(f"Found Room_ID: {room_id}")
+
+        # Fetch Student_IDs from room_allotment where Room_ID matches and Is_Active = 1
+        cursor.execute("SELECT Student_ID FROM room_allotment WHERE Room_ID = %s AND Is_Active = 1", (room_id,))
+        student_ids = cursor.fetchall()
+        print(f"Student IDs fetched: {student_ids}")
+
+        if not student_ids:
+            print("No active students found in this room")
+            return jsonify({"students": []})
+
+        # Convert list of dictionaries to a flat list of student IDs
+        student_ids = [sid["Student_ID"] for sid in student_ids]
+        print(f"Extracted Student_IDs: {student_ids}")
+
+        # Adjust the query to work with single or multiple IDs
+        format_strings = ','.join(['%s'] * len(student_ids))
+        query = f"SELECT Student_ID, Name FROM student WHERE Student_ID IN ({format_strings})"
+        cursor.execute(query, tuple(student_ids))
+        students = cursor.fetchall()
+        print(f"Fetched students: {students}")
+
+        # Format the data as a list of dictionaries with student ID and name
+        student_list = [{"id": student["Student_ID"], "name": student["Name"]} for student in students]
+        print(f"Formatted student list: {student_list}")
+
+        return jsonify({"students": student_list})
+
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+    finally:
+        cursor.close()
+        connection.close()
+
+
 
 @app.route('/attendance', methods=['POST', 'OPTIONS'])
 def get_attendance():
@@ -257,6 +320,51 @@ def get_attendance():
             'status': 'fail',
             'message': 'No attendance records found for the given student and date'
         }), 404
+    
+
+@app.route('/api/markAttendance', methods=['POST'])
+def mark_attendance():
+    data = request.json
+    student_id = data.get('student_id')
+    date = data.get('date')
+    status = data.get('status')
+    print(f"Received attendance data - Student ID: {student_id}, Date: {date}, Status: {status}")
+
+    if not student_id or not date or status not in ['Present', 'Absent']:
+        print("Error: Missing or invalid data")
+        return jsonify({"error": "Student ID, date, and valid status (Present/Absent) are required"}), 400
+
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    try:
+        # Check if attendance for this student and date already exists
+        cursor.execute("SELECT * FROM attendance WHERE Student_ID = %s AND Date = %s", (student_id, date))
+        existing_record = cursor.fetchone()
+        print(f"Existing record check: {existing_record}")
+
+        if existing_record:
+            # Update existing attendance record
+            cursor.execute("UPDATE attendance SET Status = %s WHERE Student_ID = %s AND Date = %s", 
+                           (status, student_id, date))
+            print(f"Updated attendance for Student ID {student_id} on {date} to {status}")
+        else:
+            # Insert new attendance record
+            cursor.execute("INSERT INTO attendance (Student_ID, Date, Status) VALUES (%s, %s, %s)", 
+                           (student_id, date, status))
+            print(f"Inserted attendance for Student ID {student_id} on {date} with status {status}")
+
+        connection.commit()
+        return jsonify({"success": True, "message": f"Attendance marked as {status} for Student ID {student_id} on {date}"}), 200
+
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+    finally:
+        cursor.close()
+        connection.close()
+
 @app.route('/upload_fee_payment', methods=['POST'])
 def upload_fee_payment():
     # Get form data

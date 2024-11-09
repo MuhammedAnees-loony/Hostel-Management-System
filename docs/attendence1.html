@@ -20,7 +20,7 @@
     <section class="attendance-form">
         <h1>Attendance Management</h1>
 
-        <form id="attendance-form">
+        <form id="attendance-form" onsubmit="return false;">
             <div class="form-group">
                 <label for="date">Select Date:</label>
                 <input type="date" id="date" name="date" required>
@@ -37,16 +37,13 @@
             </div>
 
             <div class="form-group">
-                <label for="user-type">Select User Type:</label>
-                <select id="user-type" name="user-type" onchange="toggleUserType()" required>
-                    <option value="student">Student</option>
-                    <option value="faculty">Faculty</option>
-                </select>
+                <label for="room-number">Enter Room Number:</label>
+                <input type="text" id="room-number" name="room-number" required>
             </div>
 
-            <div id="attendance-list"></div>
+            <button type="button" id="fetch-students-btn">Fetch Students</button>
 
-            <button type="submit" id="submit-btn">Submit Attendance</button>
+            <div id="attendance-list"></div>
         </form>
     </section>
 
@@ -54,6 +51,6 @@
         <p>&copy; 2024 Saintgits Hostel Management System. All rights reserved.</p>
     </footer>
 
-    <script src="attendance1.js"></script>
+    <script src="attendence1.js"></script>
 </body>
 </html>
