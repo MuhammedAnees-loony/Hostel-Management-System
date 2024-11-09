@@ -59,7 +59,7 @@ async function filterAttendance() {
         const result = await response.json();
 
         if (response.ok && result.status === 'success') {
-            console.log("Response Data:");
+            console.log("Response Data:",result.data);
             displayAttendance(result.data);
         } else {
             alert(result.message || 'Failed to fetch attendance records.');
