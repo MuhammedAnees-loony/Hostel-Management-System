@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Verification</title>
+    <link rel="stylesheet" href="fee1.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <a href="dashboard1.html">Dashboard</a>
+                <a href="attendance1.html">Attendance</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="fee-verification">
+        <h1>Fee Receipt Verification</h1>
+        
+        <form id="fee-form">
+            <div class="form-row">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                
+                <label for="hostel-name">Hostel Name:</label>
+                <select id="hostel-name" name="hostel-name" required>
+                    <option value="">Select Hostel</option>
+                    <option value="Hostel A">Hostel A</option>
+                    <option value="Hostel B">Hostel B</option>
+                    <option value="Hostel C">Hostel C</option>
+                </select>
+
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type" onchange="displayDetails()" required>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+
+            <div id="user-details"></div>
+
+            <button type="submit" id="submit-btn">Verify Receipts</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Saintgits Hostel Management System. All rights reserved.</p>
+    </footer>
+
+    <script src="fee1.js"></script>
+</body>
+</html>
