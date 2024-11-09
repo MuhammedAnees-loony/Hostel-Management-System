@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
 from datetime import datetime
+import base64
 app = Flask(__name__)
 CORS(app)
 
@@ -321,6 +322,66 @@ def get_attendance():
             'message': 'No attendance records found for the given student and date'
         }), 404
     
+@app.route('/api/getFeeDetails', methods=['POST'])
+def get_fee_details():
+    data = request.json
+    date = data.get('date')
+    
+    # Print the received date from frontend
+    print(f"Received date: {date}")
+    
+    if not date:
+        print("Error: Date is required.")
+        return jsonify({"error": "Date is required"}), 400
+
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor(dictionary=True)
+    
+    try:
+        # Fetch fee details for the given date along with the user name
+        query = """
+        SELECT fp.user_id, fp.fee_category, fp.image, fp.payment_date, s.Name as student_name
+        FROM fee_payment fp
+        JOIN student s ON fp.user_id = s.Student_ID
+        WHERE DATE(fp.payment_date) = %s
+        """
+        print(f"Executing query with date: {date}")
+        cursor.execute(query, (date,))
+        fee_details = cursor.fetchall()
+
+        if not fee_details:
+            print(f"No fee records found for the date: {date}")
+            return jsonify({"success": False, "message": "No fee records found for this date"}), 404
+
+        users = []
+       # print(f"Fetched fee details: {fee_detail.user_id}")
+
+        for detail in fee_details:
+            print(f"User ID: {detail['user_id']}")
+            user = {
+                'id': detail['user_id'],
+                'name': detail['student_name'],
+                'fee_category': detail['fee_category'],
+                'receipt': convert_image_to_base64(detail['image']) if detail['image'] else None
+            }
+            users.append(user)
+
+        print(f"Returning fee details for {len(users)} users.")
+        return jsonify({"success": True, "users": users})
+
+    except Exception as e:
+        print(f"Error occurred: {str(e)}")
+        return jsonify({"error": str(e)}), 500
+
+    finally:
+        cursor.close()
+        connection.close()
+
+def convert_image_to_base64(image_data):
+    if image_data:
+        print(f"Converting image to base64...")
+        return base64.b64encode(image_data).decode('utf-8')
+    return None
 
 @app.route('/api/markAttendance', methods=['POST'])
 def mark_attendance():

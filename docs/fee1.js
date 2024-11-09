@@ -1,63 +1,46 @@
 document.getElementById('fee-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    alert('Fee receipts verified successfully.');
+    const date = document.getElementById('date').value;
+    if (!date) {
+        alert("Please select a date.");
+        return;
+    }
+    
+    // Send the date to the backend to fetch the fee details
+    fetch('http://127.0.0.1:5000/api/getFeeDetails', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ date: date })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayDetails(data.users); // Display the users with their fee details
+        } else {
+            alert('Error fetching fee details.');
+        }
+    })
+    .catch(error => console.error('Error fetching fee details:', error));
 });
 
-function displayDetails() {
-    const userType = document.getElementById('user-type').value;
+function displayDetails(users) {
     const userDetails = document.getElementById('user-details');
-    userDetails.innerHTML = '';
+    userDetails.innerHTML = ''; // Clear existing details
 
-    if (userType === 'student') {
-        displayStudentDetails();
-    } else {
-        displayFacultyDetails();
-    }
-}
-
-function displayStudentDetails() {
-    const students = [
-        { id: 1, name: 'John Doe', room: 'A101', receipt: 'receipt1.jpg' },
-        { id: 2, name: 'Jane Smith', room: 'B201', receipt: 'receipt2.jpg' }
-    ];
-
-    const userDetails = document.getElementById('user-details');
-    students.forEach(student => {
+    users.forEach(user => {
         const info = document.createElement('div');
         info.classList.add('user-info');
 
         info.innerHTML = `
-            <label>Name:</label> <span>${student.name}</span><br>
-            <label>Room:</label> <span>${student.room}</span><br>
+            <label>Name:</label> <span>${user.name}</span><br>
+            <label>Room:</label> <span>${user.room}</span><br>
             <label>Fee Receipt:</label>
-            <a href="${student.receipt}" target="_blank">View Receipt</a>
-            <input type="checkbox" name="verify-${student.id}" value="verified"> Verify
+            <a href="${user.receipt}" target="_blank">View Receipt</a><br>
+            <input type="checkbox" name="verify-${user.id}" value="verified"> Verify
         `;
 
         userDetails.appendChild(info);
     });
 }
-
-function displayFacultyDetails() {
-    const faculties = [
-        { id: 1, name: 'Dr. Michael Johnson', dept: 'Computer Science', receipt: 'receipt3.jpg' },
-        { id: 2, name: 'Prof. Sarah Lee', dept: 'Mechanical Engineering', receipt: 'receipt4.jpg' }
-    ];
-
-    const userDetails = document.getElementById('user-details');
-    faculties.forEach(faculty => {
-        const info = document.createElement('div');
-        info.classList.add('user-info');
-
-        info.innerHTML = `
-            <label>Name:</label> <span>${faculty.name}</span><br>
-            <label>Department:</label> <span>${faculty.dept}</span><br>
-            <label>Fee Receipt:</label>
-            <a href="${faculty.receipt}" target="_blank">View Receipt</a>
-            <input type="checkbox" name="verify-${faculty.id}" value="verified"> Verify
-        `;
-
-        userDetails.appendChild(info);
-    });
-}
-
