@@ -295,6 +295,49 @@ def upload_fee_payment():
 
     return jsonify({'status': 'success', 'message': 'Payment receipt uploaded successfully'}), 200
 
+@app.route('/get_fee_status', methods=['POST'])
+def get_fee_status():
+    try:
+        # Get JSON data from the request
+        data = request.get_json()
+
+        # Extract user_id from the request data
+        user_id = data.get('user_id')
+
+        # Check if user_id is provided
+        if not user_id:
+            return jsonify({'status': 'error', 'message': 'Invalid parameters'}), 400
+        connection = mysql.connector.connect(**db_config)
+        cursor = connection.cursor()
+        # Query to fetch the fee status and pending amount for the user
+        query = """
+            SELECT Amount AS pending_amount, Payment_Status
+            FROM hostel_fee
+            WHERE Student_ID = %s AND Payment_Status = 'Unpaid'
+        """
+
+        # Execute the query
+        cursor = connection.cursor(dictionary=True)
+        cursor.execute(query, (user_id,))
+        result = cursor.fetchone()  # Get the first result
+
+        # Check if the fee status was retrieved
+        if result:
+            if result['Payment_Status'] == 'Unpaid':
+                pending_amount = result['pending_amount']
+                return jsonify({'status': 'success', 'pending_amount': pending_amount}), 200
+            else:
+                return jsonify({'status': 'success', 'pending_amount': 0}), 200
+        else:
+            return jsonify({'status': 'error', 'message': 'No record found for this user'}), 404
+
+    except Exception as err:
+        return jsonify({'status': 'error', 'message': 'Error processing request'}), 500
+
+    finally:
+        # Ensure the cursor is closed after use
+        cursor.close()
+
 @app.route('/register_user', methods=['POST'])
 def register_user():
     data = request.get_json()

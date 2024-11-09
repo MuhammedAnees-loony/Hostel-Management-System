@@ -13,19 +13,18 @@ document.getElementById('fee-form').addEventListener('submit', function(event) {
     const feeStatus = document.getElementById('fee-status');
     const feeMessage = document.getElementById('fee-message');
 
-    // Simulate fee payment status (e.g., pending fees)
-    let pendingFees = {
-        mess: 5000,
-        hostel: 10000
-    };
-
-    // Check if the receipt is uploaded
-    if (receipt) {
-        if (pendingFees[feeCategory] > 0) {
-            feeMessage.textContent = `Your ${feeCategory === 'mess' ? 'Mess' : 'Hostel'} Fee of ₹${pendingFees[feeCategory]} is still pending.`;
-        } else {
-            feeMessage.textContent = "All fees have been paid.";
-        }
+    fetch(`http://127.0.0.1:5000/get_fee_status?user_id=${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const pendingAmount = data.pending_amount;
+                
+                // Display the pending fee status
+                if (pendingAmount > 0) {
+                    feeMessage.textContent = `Your ${feeCategory === 'mess' ? 'Mess' : 'Hostel'} Fee of ₹${pendingAmount} is still pending.`;
+                } else {
+                    feeMessage.textContent = "All fees have been paid.";
+                }
 
         // Show the status message
         feeStatus.classList.remove('hidden');
@@ -65,4 +64,5 @@ document.getElementById('fee-form').addEventListener('submit', function(event) {
     } else {
         alert("Please upload a fee receipt.");
     }
+});
 });
