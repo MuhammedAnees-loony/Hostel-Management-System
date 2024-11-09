@@ -44,6 +44,14 @@
             <button type="submit" id="submit-btn">Verify Receipts</button>
         </form>
     </section>
+<!-- Hidden iframe popup container -->
+<div id="iframe-popup" class="iframe-popup" style="display: none;" sandbox="allow-popups allow-scripts">
+    <div class="iframe-popup-content">
+        <button id="close-popup-btn" onclick="closeIframePopup()">Close</button>
+        <!-- Add the 'sandbox' attribute to allow popups -->
+        <iframe id="receipt-iframe" width="800" height="600" frameborder="0" sandbox="allow-popups"></iframe>
+    </div>
+</div>
 
     <footer>
         <p>&copy; 2024 Saintgits Hostel Management System. All rights reserved.</p>
