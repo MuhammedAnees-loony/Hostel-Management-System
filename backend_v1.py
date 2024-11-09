@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
-
+from datetime import datetime
 app = Flask(__name__)
 CORS(app)
 
@@ -179,6 +179,7 @@ def login():
                     if hostel_data:
                         hostel_name = hostel_data['Name']
                         user_data['room_number'] = room_number
+                        user_data['user_id']=user_id
                         user_data['hostel_name'] = hostel_name
                         print(f"Room number and hostel name found: {room_number}, {hostel_name}")
 
@@ -204,6 +205,55 @@ def login():
         connection.close()
         print("Invalid credentials provided.")
         return jsonify({'status': 'fail', 'message': 'Invalid login ID, password, or user type'}), 401
+
+@app.route('/attendance', methods=['POST', 'OPTIONS'])
+def get_attendance():
+    if request.method == 'OPTIONS':
+        response = jsonify({'status': 'preflight check successful'})
+        response.headers.add("Access-Control-Allow-Origin", "https://muhammedanees-loony.github.io")
+        response.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+        response.headers.add("Access-Control-Allow-Methods", "POST,OPTIONS")
+        return response, 200
+
+    data = request.get_json()
+    student_id = data.get('student_id')
+    date_str = data.get('date')
+    
+    # Convert date to a datetime object to handle date comparisons
+    try:
+        date = datetime.strptime(date_str, '%Y-%m-%d').date()
+    except ValueError:
+        return jsonify({'status': 'fail', 'message': 'Invalid date format. Use YYYY-MM-DD.'}), 400
+
+    if not student_id:
+        return jsonify({'status': 'fail', 'message': 'Student ID is required'}), 400
+
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor(dictionary=True)
+    
+    query = """
+    SELECT Date, Status
+    FROM attendance
+    WHERE Student_ID = %s AND Date <= %s
+    ORDER BY Date ASC;
+    """
+    cursor.execute(query, (student_id, date))
+    attendance_records = cursor.fetchall()
+    
+    cursor.close()
+    connection.close()
+
+    if attendance_records:
+        return jsonify({
+            'status': 'success',
+            'message': 'Attendance records retrieved successfully',
+            'data': attendance_records
+        }), 200
+    else:
+        return jsonify({
+            'status': 'fail',
+            'message': 'No attendance records found for the given student and date'
+        }), 404
 
 @app.route('/register_user', methods=['POST'])
 def register_user():

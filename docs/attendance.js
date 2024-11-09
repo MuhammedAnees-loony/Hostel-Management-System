@@ -1,9 +1,4 @@
-// Sample attendance data (This could be dynamic in a real system)
-const attendanceData = [
-    { date: '2024-10-01', status: 'Present' },
-    { date: '2024-10-02', status: 'Absent' },
-    { date: '2024-10-03', status: 'Present' }
-];
+
 
 // Sample leave data
 const leaveData = [];
@@ -32,16 +27,45 @@ function displayLeave(data) {
     });
 }
 
-// Function to filter attendance by date
-function filterAttendance() {
+// Function to filter attendance by date and fetch data from backend
+async function filterAttendance() {
     const selectedDate = document.getElementById('date-filter').value;
-    const filteredData = attendanceData.filter(record => record.date === selectedDate);
+    const studentId = localStorage.getItem('user_id'); // Get student_id from local storage
+
+    if (!selectedDate) {
+        alert('Please select a date.');
+        return;
+    }
     
-    if (filteredData.length > 0) {
-        displayAttendance(filteredData);
-    } else {
-        alert('No attendance records found for this date.');
-        displayAttendance(attendanceData); // Show all data if no match
+    if (!studentId) {
+        alert('Student ID not found in local storage.');
+        return;
+    }
+
+    try {
+        // Send POST request to the backend
+        const response = await fetch('http://127.0.0.1:5000/attendance', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                student_id: studentId,
+                date: selectedDate
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.status === 'success') {
+            displayAttendance(result.data);
+        } else {
+            alert(result.message || 'Failed to fetch attendance records.');
+            displayAttendance([]); // Clear table if no data
+        }
+    } catch (error) {
+        console.error('Error fetching attendance data:', error);
+        alert('An error occurred while fetching attendance data.');
     }
 }
 
