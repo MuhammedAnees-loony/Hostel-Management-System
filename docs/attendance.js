@@ -1,4 +1,4 @@
-
+const attendanceData = [];
 
 // Sample leave data
 const leaveData = [];
@@ -100,7 +100,10 @@ function markLeave() {
 displayAttendance(attendanceData);
 
 // Event listener for the filter button
-document.getElementById('filter-btn').addEventListener('click', filterAttendance);
+document.getElementById('filter-btn').addEventListener('click', function() {
+    console.log("Filter button clicked.");
+    filterAttendance();
+});
 
 // Event listener for the mark leave button
 document.getElementById('mark-leave-btn').addEventListener('click', markLeave);
