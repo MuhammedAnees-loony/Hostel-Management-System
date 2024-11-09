@@ -59,6 +59,7 @@ async function filterAttendance() {
         const result = await response.json();
 
         if (response.ok && result.status === 'success') {
+            console.log("Response Data:");
             displayAttendance(result.data);
         } else {
             alert(result.message || 'Failed to fetch attendance records.');
@@ -103,6 +104,8 @@ displayAttendance(attendanceData);
 document.getElementById('filter-btn').addEventListener('click', function() {
     console.log("Filter button clicked.");
     filterAttendance();
+    
+
 });
 
 // Event listener for the mark leave button

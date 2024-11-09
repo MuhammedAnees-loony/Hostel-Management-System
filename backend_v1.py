@@ -151,6 +151,7 @@ def login():
                         hostel_name = hostel_data['Name']
                         user_data['room_number'] = room_number
                         user_data['hostel_name'] = hostel_name
+                        user_data['user_id']=user_id
                         print(f"Room number and hostel name found: {room_number}, {hostel_name}")
         
         # warden
@@ -181,7 +182,7 @@ def login():
                         user_data['room_number'] = room_number
                         user_data['user_id']=user_id
                         user_data['hostel_name'] = hostel_name
-                        print(f"Room number and hostel name found: {room_number}, {hostel_name}")
+                        print(f"Room number and hostel name found: {room_number}, {hostel_name},{user_id}")
 
         cursor.close()
         connection.close()
@@ -195,6 +196,7 @@ def login():
                     'username': login_id,
                     'role_id': credentials_result['Role_ID'],
                     'user_details': user_data
+                    
                 }
             }), 200
         else:
@@ -218,6 +220,7 @@ def get_attendance():
     data = request.get_json()
     student_id = data.get('student_id')
     date_str = data.get('date')
+    print(student_id,date_str)
     
     # Convert date to a datetime object to handle date comparisons
     try:
@@ -239,7 +242,7 @@ def get_attendance():
     """
     cursor.execute(query, (student_id, date))
     attendance_records = cursor.fetchall()
-    
+    print(attendance_records)
     cursor.close()
     connection.close()
 
